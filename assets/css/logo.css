@@ -6,3 +6,12 @@
   color: black;
   padding: 5px 10px;
 }
+
+.logo2{
+  font-size: .4em !important;
+  border: none;
+  color:  #e12067;
+  white-space: pre;
+  padding:  0px;
+
+}

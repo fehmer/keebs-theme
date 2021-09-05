@@ -5,7 +5,6 @@
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="{{ .Permalink }}" />
 
-{{ template "_internal/google_analytics.html" . }}
 
 <!-- Theme CSS -->
 <link rel="stylesheet" href="{{ "assets/style.css" | absURL }}">
@@ -17,16 +16,23 @@
 
 <!-- Custom CSS to override theme properties (/static/style.css) -->
 {{ if (fileExists "static/style.css") -}}
-  <link rel="stylesheet" href="{{ "style.css" | absURL }}">
+  <link rel="stylesheet" type="image/svg+xml" href="{{ "style.css" | absURL }}">
 {{- end }}
 
 <!-- Icons -->
-<link rel="apple-touch-icon" href="{{ "img/apple-touch-icon-192x192.png" | absURL }}">
-{{ if isset $.Site.Params "favicon" }}
-  <link rel="shortcut icon" href="{{ $.Site.Params.favicon | absURL }}">
-{{ else }}
-  <link rel="shortcut icon" href="{{ printf "img/favicon/%s.png" ($.Site.Params.ThemeColor | default "orange") | absURL }}">
-{{ end }}
+<link rel="apple-touch-icon" sizes="57x57" href="https://fehmer.info/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="https://fehmer.info/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="https://fehmer.info/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="https://fehmer.info/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://fehmer.info/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="https://fehmer.info/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="https://fehmer.info/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="https://fehmer.info/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://fehmer.info/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="https://fehmer.info/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://fehmer.info/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="https://fehmer.info/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://fehmer.info/favicon-16x16.png">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary" />

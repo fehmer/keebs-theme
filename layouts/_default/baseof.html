@@ -9,7 +9,11 @@
 <body class="{{- ( or .Params.color $.Site.Params.ThemeColor ) -}}">
 {{ $container := cond $.Site.Params.FullWidthTheme "container full" (cond $.Site.Params.CenterTheme "container center" "container") }}
 
-<div class="{{- $container -}}{{- cond ($.Site.Params.oneHeadingSize | default true) " headings--one-size" "" }}">
+<div class="{{- $container -}}{{- cond ($.Site.Params.oneHeadingSize | default false) " headings--one-size" "" }}">
+
+
+    <div class="terminal">
+
 
   {{ partial "header.html" . }}
 
@@ -18,9 +22,14 @@
     {{ end }}
   </div>
 
+</div>
+
   {{ block "footer" . }}
     {{ partial "footer.html" . }}
   {{ end }}
+
+
+
 </div>
 
 </body>

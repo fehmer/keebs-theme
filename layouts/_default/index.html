@@ -1,4 +1,5 @@
 {{ define "main" }}
+
   {{ if .Content }}
     <div class="index-content {{ if .Params.framed -}}framed{{- end -}}">
       {{ .Content }}
@@ -14,54 +15,27 @@
     {{ end }}
     {{ $paginator := .Paginate (where $PageContext.RegularPages "Type" $contentTypeName) }}
 
+
+    {{ partial "prompt.html" . }}ls -tl
+
+    <table id="ls">
+
     {{ range $paginator.Pages }}
-      <div class="post on-list">
-        <h1 class="post-title">
-          <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
-        </h1>
-        <div class="post-meta">
-          <span class="post-date">
-            {{ .Date.Format "2006-01-02" }}
-          </span>
-          {{ with .Params.Author }}
-            <span class="post-author">:: {{ . }}</span>
-          {{ end }}
-        </div>
+    <tr>
+      <td>rw-r--r--</td>
+      <td>{{ .Params.author }}</td>
+      {{ $sizeInBytes := len .Content }}
+      <td>{{ div $sizeInBytes 1024 }}K</td>
+      <td>{{ .Date.Format "January 2 2006" }}</td>
+      <td><a href="{{ .Permalink }}">{{ replace .Title " " "_" | markdownify }}.md</a></td>
+    </tr>
 
-        {{ if .Params.tags }}
-          <span class="post-tags">
-            {{ range .Params.tags }}
-            #<a href="{{ (urlize (printf "tags/%s/" . )) | absLangURL }}">
-              {{- . -}}
-            </a>&nbsp;
-            {{ end }}
-          </span>
-        {{ end }}
 
-        {{ if .Params.Cover }}
-          <img src="{{ .Params.Cover | absURL }}" class="post-cover" alt="{{ .Title | plainify | default " " }}" />
-        {{ end }}
-
-        <div class="post-content">
-          {{ if .Params.showFullContent }}
-          {{ .Content }}
-          {{ else if .Description }}
-          {{ .Description | markdownify }}
-          {{ else }}
-          {{ if .Truncated }}
-          {{ .Summary }}
-          {{ end }}
-          {{ end }}
-        </div>
-
-        {{ if not .Params.showFullContent }}
-        <div>
-          <a class="read-more button"
-            href="{{.RelPermalink}}">{{ $.Site.Params.ReadMore }} →</a>
-        </div>
-        {{ end }}
-      </div>
     {{ end }}
+    </table>
+
+    {{ partial "prompt.html" . }}<span id="input"></span>
     {{ partial "pagination.html" . }}
   </div>
+
 {{ end }}

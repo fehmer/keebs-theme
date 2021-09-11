@@ -3,7 +3,7 @@
 
   {{ partial "prompt.html" . }}ls -l {{ replace .Title " " "_" | markdownify }}.md
 
-  <table id="ls">
+  <table class="ls">
     <tr>
       <td>rw-r--r--</td>
       <td>{{ .Params.author }}</td>

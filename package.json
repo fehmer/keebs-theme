@@ -56,7 +56,5 @@
     "webpack-cli": "^4.5.0",
     "yarn": "^1.22.11"
   },
-  "dependencies": {
-
-  }
+  "dependencies": {}
 }
